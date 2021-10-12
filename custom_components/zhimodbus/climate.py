@@ -23,7 +23,7 @@ from homeassistant.const import CONF_NAME, CONF_SLAVE, CONF_OFFSET, CONF_STRUCTU
 from homeassistant.components.modbus.const import (
     CONF_HUB, DEFAULT_HUB, MODBUS_DOMAIN, 
     CALL_TYPE_COIL, CALL_TYPE_REGISTER_HOLDING, CALL_TYPE_REGISTER_INPUT,
-    CALL_TYPE_WRITE_COIL, CALL_TYPE_WRITE_REGISTER
+    CALL_TYPE_WRITE_COIL, CALL_TYPE_WRITE_REGISTERS
 )
 import homeassistant.helpers.config_validation as cv
 
@@ -267,7 +267,7 @@ class ClimateModbus():
             self.hub._pymodbus_call(slave, register, bool(value), CALL_TYPE_WRITE_COIL)
         else:
             val = (value - offset) / scale
-            self.hub._pymodbus_call(slave, register, int(val), CALL_TYPE_WRITE_REGISTER)
+            self.hub._pymodbus_call(slave, register, int(val), CALL_TYPE_WRITE_REGISTERS)
 
 
 class ZhiModbusClimate(ClimateEntity):
