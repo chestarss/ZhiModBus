@@ -236,6 +236,12 @@ class ClimateModbus():
         slave = reg.get(CONF_SLAVE, 1)
         scale = reg.get(CONF_SCALE, 1)
         offset = reg.get(CONF_OFFSET, 0)
+        _LOGGER.debug("reg=" + str(reg))
+        _LOGGER.debug("register_type=" + str(register_type))
+        _LOGGER.debug("slave=" + str(slave))
+        _LOGGER.debug("register="+ str(register))
+        _LOGGER.debug("scale=" + str(scale))
+        _LOGGER.debug("offset=" + str(offset))
         return (register_type, slave, register, scale, offset)
 
     def read_value(self, index, prop):
